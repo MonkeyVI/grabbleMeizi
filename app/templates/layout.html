@@ -1,0 +1,13 @@
+{% import 'admin/layout.html' as layout with context -%}
+{% extends 'admin/base.html' %}
+
+{% block head_tail %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block brand %}
+    {{ super() }}
+    <span class="pull-left" style="line-height: 40px; width: 60px;"><a href="{{ url_for('auth.logout') }}">[{{ _('Logout') }}]</a></span>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+.select2-container.LinkageSel {
+    min-width: 220px;
+    margin: 0 5px 0 0;
+}
+
+table.table-vertical th.title {
+    text-align: center;
+    font-size: large;
+    background-color: inherit;
+}
+
+table.table-vertical th {
+    width: 10%;
+    background-color: #eee;
+}
+
+.inline-field .inline-form-field {
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+}
+
+.inline-field-control {
+    padding: 10px;
+}
+
+.width-3{width: 3% !important;}
+.width-5{width: 5% !important;}
+.width-6{width: 6% !important;}
+.width-10{width: 10% !important;}
+.width-23{width: 23% !important;}
+.lm-10{margin-left: 10px;}
+.lb{display: inline-block;}
+
+#group-purchase-total{margin-bottom: 10px;}
+#group-purchase-total span{color: #FF0000; margin-right: 20px; font-size: large;}
+
+.help-content{font-weight: bold; color: blue; margin-bottom: 10px;}
+.help-necessary{color: #FF0000; font-size: 16px;}
