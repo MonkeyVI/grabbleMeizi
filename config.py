@@ -7,7 +7,7 @@ __author__ = 'Vito'
 
 
 class Config(object):
-    ABEL_DEFAULT_LOCALE = 'zh_CN'
+    BABEL_DEFAULT_LOCALE = 'zh'
     BABEL_DEFAULT_TIMEZONE = 'UTC+8:00'
 
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'alibabahesishidadao'

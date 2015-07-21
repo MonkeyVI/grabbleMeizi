@@ -10,6 +10,11 @@ from app.exts import cache, celery, db, debug_toolbar, babel, migrate, assets_en
     bootstrap, login_manager
 
 
+@babel.localeselector
+def get_locale():
+    return 'zh_CN'
+
+
 def create_app(config_name):
     app = Flask(config_name)
     app.config.from_object(config[config_name])

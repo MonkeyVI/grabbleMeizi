@@ -15,4 +15,11 @@ class BaseModel(db.Model):
 
 
 class BaseModelView(ModelView):
-    pass
+    form_widget_args = {
+        'created_at': {
+            'readonly': True
+        },
+        'updated_at': {
+            'readonly': True
+        }
+    }
