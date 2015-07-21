@@ -3,7 +3,7 @@
 # Created by Vito on 7/19/15.
 from flask import current_app
 from flask.ext.login import UserMixin
-from app import db
+from app import db, login_manager
 from app.core.modles import BaseModel
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -14,7 +14,7 @@ __author__ = 'Vito'
 class AdminUser(UserMixin, BaseModel):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(255))
+    email = db.Column(db.String(255), primary_key=True)
     user_name = db.Column(db.String(255))
     password_hash = db.Column(db.String(255))
     confirmed = db.Column(db.Boolean, default=False)
@@ -81,3 +81,8 @@ class AdminUser(UserMixin, BaseModel):
 
     def __repr__(self):
         return self.user_name
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return AdminUser.query.get(int(user_id))

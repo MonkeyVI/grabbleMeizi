@@ -15,9 +15,20 @@ class Config(object):
     FLASK_MAIL_SUBJECT_PREFIX = ''
     FLASK_MAIL_SENDER = 'pastedmemory@gmail.com'
 
+    # celery
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_IMPORTS = ('tasks',)
+    CELERY_DEFAULT_QUEUE = "as-vip-default"
+
+    CELERY_BROKER_URL = 'redis://{}'.format(os.environ.get('REDIS_URI', 'localhost:6379/0'))
+    CELERY_IGNORE_RESULT = True
+
     @classmethod
     def init_app(cls, app):
         pass
+
 
 class DevelopmentConfig(Config):
     DEBUG = True

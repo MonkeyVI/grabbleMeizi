@@ -21,13 +21,14 @@ def create_app(config_name):
     config[config_name].init_app(app)
     app_admin.init_app(app)
     babel.init_app(app)
+    celery.init_app(app)
     bootstrap.init_app(app)
 
     db.init_app(app)
     with app.app_context():
         print current_app.name
         db.create_all()
-    # login_manager.init_app(app)
+    login_manager.init_app(app)
 
     app_admin.base_template = 'layout.html'
 

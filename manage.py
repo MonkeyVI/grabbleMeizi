@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
 # Created by Vito on 7/17/15.
+from extensions.command import CeleryCommand
 
 __author__ = 'Vito'
 import os
@@ -20,6 +21,7 @@ def make_shell_context():
 
 manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
+manager.add_command('celery', CeleryCommand)
 
 
 @manager.command
