@@ -4,7 +4,7 @@
 from flask import Blueprint
 
 from .. import app_admin as admin_ext
-from flask.ext.babelex import gettext, lazy_gettext
+from flask.ext.babel import lazy_gettext
 from app import db
 from app.admin.auth_admin import UserAdmin
 from app.auth.modles import AdminUser

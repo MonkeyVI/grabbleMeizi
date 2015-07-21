@@ -7,6 +7,8 @@ __author__ = 'Vito'
 
 
 class Config(object):
+    BASEDIR = os.path.abspath(os.path.dirname(__file__))
+
     BABEL_DEFAULT_LOCALE = 'zh'
     BABEL_DEFAULT_TIMEZONE = 'UTC+8:00'
 
@@ -40,6 +42,18 @@ class StagingConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'STAGING_DATABASE_URI') or 'mysql://root:@localhost:3308/grabble'
+
+    @classmethod
+    def init_app(cls, app):
+        Config.init_app(app)
+
+        # email errors to the administrators
+        import logging
+        from logging import FileHandler
+
+        syslog_handler = FileHandler(os.path.join(config.BASEDIR, 'logs/staging.log'))
+        syslog_handler.setLevel(logging.DEBUG)
+        app.logger.addHandler(syslog_handler)
 
 
 class ProductionConfig(Config):
