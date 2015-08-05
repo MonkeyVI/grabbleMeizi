@@ -17,6 +17,11 @@ class Config(object):
     FLASK_MAIL_SUBJECT_PREFIX = ''
     FLASK_MAIL_SENDER = 'pastedmemory@gmail.com'
 
+    MAIL_SENDER = 'SendCloud'
+    SEND_CLOUD_API_USER = 'WenKeFei_test_Bxk0NG'
+    SEND_CLOUD_API_KEY = 'AkIPNXW3QFRbGZS8'
+    SEND_CLOUD_URL = 'http://sendcloud.sohu.com/webapi/mail.send.json'
+
     # celery
     CELERY_ACCEPT_CONTENT = ['json']
     CELERY_TASK_SERIALIZER = 'json'
@@ -36,6 +41,14 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'STAGING_DATABASE_URI') or 'mysql://root:@localhost:3308/grabble'
+
+    MAIL_SERVER = 'smtp.163.com'
+    MAIL_PORT = 465
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = os.environ.get('grabbleMeiZi@163.com')
+    MAIL_PASSWORD = os.environ.get('meng1989q')
+    SQLALCHEMY_ECHO = True
 
 
 class StagingConfig(Config):

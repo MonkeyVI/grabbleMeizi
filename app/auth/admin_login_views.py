@@ -46,8 +46,8 @@ def admin_register():
         db.session.commit()
         token = user.generate_confirmation_token()
         send_email(user.email, current_app.config['FLASK_MAIL_SENDER'],
-                   'Admin', gettext('Confirm Your Account'), 'auth/email/confirm',
-                   user=user, token=token)
+                   'Admin', gettext('Confirm Your Account'), 'auth/confirm',
+                   user=user, token=token, host=request.url_root, name=user.user_name)
         flash(gettext('A confirmation email has been sent to you be email.'))
         return redirect(url_for('auth.admin_login'))
     return render_template('auth/register.html', form=form)

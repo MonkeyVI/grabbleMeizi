@@ -10,6 +10,11 @@ pip install -r requirements.txt
 
 brew install mysql
 
+#init DataBase
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
+
 # translation
 pybabel compile -f -d translations/
 

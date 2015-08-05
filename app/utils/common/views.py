@@ -2,6 +2,7 @@
 # !/usr/bin/env python
 # Created by Vito on 7/21/15.
 import json
+import requests
 from flask import render_template, current_app, Response
 from flask.ext.mail import Message, Mail
 
@@ -24,7 +25,6 @@ def make_resp(token='', json_info={}, code=200, error=''):
 def send_email(to, from_email, from_name, subject, template, files='', **kwargs):
     html = render_template(template + '.html', **kwargs)
     if current_app.config['MAIL_SENDER'] == 'SendCloud':
-        import requests
 
         sc_url = current_app.config['SEND_CLOUD_URL']
         api_user = current_app.config['SEND_CLOUD_API_USER']
@@ -38,6 +38,7 @@ def send_email(to, from_email, from_name, subject, template, files='', **kwargs)
             'subject': subject,
             'html': html
         }
+
         r = requests.post(sc_url, files=files, data=params)
         # @todo: check the status
         print r.text
