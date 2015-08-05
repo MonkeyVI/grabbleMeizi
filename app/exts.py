@@ -39,5 +39,5 @@ bootstrap = Bootstrap()
 
 
 login_manager = LoginManager()
-login_manager.login_view = "main.login"
+login_manager.login_view = "auth.admin_login"
 login_manager.login_message_category = "warning"

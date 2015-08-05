@@ -18,7 +18,7 @@ class LoginForm(Form):
 
     password = PasswordField(lazy_gettext('Password'), validators=[Required()])
     remember_me = BooleanField(lazy_gettext('Keep me logged in'))
-    submit = SubmitField(lazy_gettext('Log In'))
+    submit = SubmitField(lazy_gettext('LogIn'))
 
 
 class RegistrationForm(Form):

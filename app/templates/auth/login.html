@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Schnitt Stelle {% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>{{ gettext('Login') }}</h1>
+    </div>
+    <p>
+        {{ gettext('New user?') }}
+        <a href="{{ url_for('auth.admin_register') }}"> {{ gettext('Click here to register') }}</a>
+    </p>
+    <div class="col-md-4">
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}

@@ -1,14 +1,27 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
 # Created by Vito on 7/17/15.
-from config import config
 
 __author__ = 'Vito'
 
-from flask import Flask, current_app
 from app.exts import cache, celery, db, debug_toolbar, babel, migrate, assets_env, app_admin, \
     bootstrap, login_manager
 
+from config import config
+
+from flask import Flask, current_app, redirect, url_for
+from flask_admin import AdminIndexView, Admin
+from flask_login import current_user
+
+class admin_index_view(AdminIndexView):
+    def is_accessible(self):
+        return current_user.is_authenticated() and current_user.confirmed
+
+    def _handle_view(self, name, **kwargs):
+        if not self.is_accessible():
+            return redirect(url_for('auth.admin_login'))
+
+app_admin = Admin(index_view=admin_index_view())
 
 @babel.localeselector
 def get_locale():

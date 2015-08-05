@@ -8,7 +8,7 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-brew install mongodb
+brew install mysql
 
 # translation
 pybabel compile -f -d translations/

@@ -14,7 +14,7 @@ __author__ = 'Vito'
 class AdminUser(UserMixin, BaseModel):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(255), primary_key=True)
+    email = db.Column(db.String(255))
     user_name = db.Column(db.String(255))
     password_hash = db.Column(db.String(255))
     confirmed = db.Column(db.Boolean, default=False)

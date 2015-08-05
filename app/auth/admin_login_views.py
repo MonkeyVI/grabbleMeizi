@@ -23,7 +23,7 @@ def admin_login():
     """
     form = LoginForm()
     if form.validate_on_submit():
-        user = db.slave_session.query(AdminUser).filter_by(email=form.email.data).first()
+        user = AdminUser.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user)
             return redirect('/admin')
@@ -38,7 +38,7 @@ def admin_register():
     :return:
     """
     form = RegistrationForm()
-    if form.validate_on_submit() and form.email.data.endswith('@missfresh.cn'):
+    if form.validate_on_submit():
         user = AdminUser(email=form.email.data,
                          user_name=form.username.data,
                          password=form.password.data)
@@ -50,7 +50,6 @@ def admin_register():
                    user=user, token=token)
         flash(gettext('A confirmation email has been sent to you be email.'))
         return redirect(url_for('auth.admin_login'))
-    flash(gettext('Use *@missfresh.cn only!'))
     return render_template('auth/register.html', form=form)
 
 
