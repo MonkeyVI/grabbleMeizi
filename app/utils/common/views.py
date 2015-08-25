@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
 # Created by Vito on 7/21/15.
+import hashlib
 import json
 import requests
 from flask import render_template, current_app, Response
@@ -50,3 +51,9 @@ def send_email(to, from_email, from_name, subject, template, files='', **kwargs)
         with current_app.app_context():
             mail = Mail(current_app)
             mail.send(msg)
+
+
+def make_md5(str):
+    m = hashlib.md5()
+    m.update(str)
+    return m.hexdigest().upper()

@@ -2,12 +2,17 @@
 # !/usr/bin/env python
 # Created by Vito on 7/17/15.
 import os
+import os.path as op
 
 __author__ = 'Vito'
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = op.dirname(__file__) + '/app/static/images'
 
 
 class Config(object):
-    BASEDIR = os.path.abspath(os.path.dirname(__file__))
+    """
+        基本配置
+    """
 
     BABEL_DEFAULT_LOCALE = 'zh'
     BABEL_DEFAULT_TIMEZONE = 'UTC+8:00'

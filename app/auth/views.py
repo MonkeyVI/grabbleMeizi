@@ -14,7 +14,7 @@ from app import db
 
 from app.auth import auth
 from app.auth.forms import LoginForm
-from app.auth.modles import AdminUser
+from app.auth.models import AdminUser
 
 __author__ = 'Vito'
 

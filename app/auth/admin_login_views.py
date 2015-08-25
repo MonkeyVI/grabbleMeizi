@@ -9,7 +9,7 @@ from flask_login import login_user
 from app import db
 from app.auth import auth
 from app.auth.forms import LoginForm, RegistrationForm
-from app.auth.modles import AdminUser
+from app.auth.models import AdminUser
 from app.utils.common.views import send_email
 
 __author__ = 'Vito'

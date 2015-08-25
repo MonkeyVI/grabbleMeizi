@@ -4,7 +4,7 @@
 
 
 from flask.ext.babelex import lazy_gettext
-from app.auth.modles import AdminUser
+from app.auth.models import AdminUser
 
 __author__ = 'Vito'
 

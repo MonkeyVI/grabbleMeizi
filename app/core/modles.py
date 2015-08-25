@@ -23,3 +23,4 @@ class BaseModelView(ModelView):
             'readonly': True
         }
     }
+    column_exclude_list = ('created_at', 'updated_at')
