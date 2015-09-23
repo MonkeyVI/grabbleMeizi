@@ -53,7 +53,7 @@ class DevelopmentConfig(Config):
     MAIL_USE_SSL = False
     MAIL_USERNAME = os.environ.get('grabbleMeiZi@163.com')
     MAIL_PASSWORD = os.environ.get('meng1989q')
-    SQLALCHEMY_ECHO = True
+    # SQLALCHEMY_ECHO = True
 
 
 class StagingConfig(Config):
