@@ -24,3 +24,5 @@ pybabel compile -f -d translations/
 python manage.py celery run_worker
 
 aaaaaa
+
+bbbbbb
